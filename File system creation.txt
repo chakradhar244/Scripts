@@ -1,0 +1,541 @@
+===========================================================================================================================================
+
+******************************************************** FILE SYSTEM CREATION **************************************************************
+
+CHG0207397
+CHG0207779
+*****************************************
+To scan hosts
+
+ 920  cd /sys/class/scsi_host/
+  921  ls -ltr
+  922  echo "- - -" > /sys/class/scsi_host/host0/scan
+
+********************************************************
+
+ /DB/ed9tosetClone
+******************************************************************************************
+
+ 992  df - h /DB/AI
+  993  vgs
+  994  df -h
+  995  lvs
+  996  vgs
+  997  exit
+  998  ssh BEMNAA01-RH
+  999  exit
+ 1000  vgs
+ 1001  df -h /home
+ 1002  lsblk
+ 1003  df
+ 1004  clear
+ 1005  df -h
+ 1006  df -h /home
+ 1007  lvs
+ 1008  lvs |grep -i home
+ 1009  df -h /home
+ 1010  vgs |grep -i rootvg
+ 1011  df -hTP /home
+ 1012  lvextend -L +10G /dev/mapper/rootvg-home
+ 1013  df -h /home
+ 1014  resize2fs /dev/mapper/rootvg-home
+ 1015  df -h /home
+ 1016  vgs
+ 1017  history
+[root@BEMNAA01 ~]#
+
+***********************************************************************************************
+
+ 1000  hostname -i
+ 1001  df -h
+ 1002  vgs
+ 1003  dmesg
+ 1004  lsblk
+ 1005  pvs
+ 1006  fdisk -ll | more
+ 1007  blkid
+ 1008  dmesg |grep -i 55
+ 1009  ls -ltr /dev/sdn
+ 1010  pvs |grep -i sdn
+ 1011  dmesg -T
+ 1012  dmesg
+ 1013  pvs |grep -i sdy
+ 1014  echo "- - -" > /sys/class/scsi_host/host0/scan
+ 1015  echo "- - -" > /sys/class/scsi_host/host1/scan
+ 1016  echo "- - -" > /sys/class/scsi_host/host2/scan
+ 1017  dmesg
+ 1018  fdisk -ll |grep -i sdz
+ 1019  pvs |grep -i sdz
+ 1020  fdisk -ll /dev/sdz
+ 1021  pvcreate /dev/sdz
+ 1022  pvs
+ 1023  vgcreate dbvg04 /dev/sdz
+ 1024  vgs
+ 1025  lvs
+ 1026  lvcreate -l100%FREE -n ed9tosetClone dbvg04
+ 1027  df -hTP
+ 1028  mkfs.ext3 /dev/mapper/dbvg04-ed9tosetClone
+ 1029  mkdir -p /DB/ed9tosetClone
+ 1030  cd /DB/ed9tosetClone
+ 1031  df -h .
+ 1032  ls -ltr
+ 1033  cd /
+ 1034  mount /dev/mapper/dbvg04-ed9tosetClone /DB/ed9tosetClone
+ 1035  df -h /DB/ed9tosetClone
+ 1036  vi /etc/fstab
+ 1037  umount /DB/ed9tosetClone
+ 1038  mount /DB/ed9tosetClone
+ 1039  df -h /DB/ed9tosetClone
+ 1040  ls -ld /DB/ed9tosetClone
+ 1041  history
+[root@BEMNAA01-RH /]#
+
+*******************************************************************************************
+
+  936  whoami
+  937  lsblk
+  938  df -h
+  939  df -h /u01/oracle/mde
+  940  vgs
+  941  ls
+  942  cd /sys/class/scsi_host
+  943  ls
+  944  echo "- - -" >  /sys/class/scsi_host/host0/scan
+  945  echo "- - -" >  /sys/class/scsi_host/host1/scan
+  946  echo "- - -" >  /sys/class/scsi_host/host2/scan
+  947  echo "- - -" >  /sys/class/scsi_host/host3/scan
+  948  echo "- - -" >  /sys/class/scsi_host/host4/scan
+  949  echo "- - -" >  /sys/class/scsi_host/host5/scan
+  950  echo "- - -" >  /sys/class/scsi_host/host6/scan
+  951  echo "- - -" >  /sys/class/scsi_host/host7/scan
+  952  echo "- - -" >  /sys/class/scsi_host/host8/scan
+  953  echo "- - -" >  /sys/class/scsi_host/host9/scan
+  954  echo "- - -" >  /sys/class/scsi_host/host10/scan
+  955  echo "- - -" >  /sys/class/scsi_host/host11/scan
+  956  echo "- - -" >  /sys/class/scsi_host/host12/scan
+  957  echo "- - -" >  /sys/class/scsi_host/host13/scan
+  958  echo "- - -" >  /sys/class/scsi_host/host14/scan
+  959  echo "- - -" >  /sys/class/scsi_host/host15/scan
+  960  echo "- - -" >  /sys/class/scsi_host/host16/scan
+  961  echo "- - -" >  /sys/class/scsi_host/host17/scan
+  962  echo "- - -" >  /sys/class/scsi_host/host18/scan
+  963  echo "- - -" >  /sys/class/scsi_host/host19/scan
+  964  echo "- - -" >  /sys/class/scsi_host/host20/scan
+  965  echo "- - -" >  /sys/class/scsi_host/host21/scan
+  966  echo "- - -" >  /sys/class/scsi_host/host22/scan
+  967  echo "- - -" >  /sys/class/scsi_host/host23/scan
+  968  echo "- - -" >  /sys/class/scsi_host/host24/scan
+  969  echo "- - -" >  /sys/class/scsi_host/host25/scan
+  970  echo "- - -" >  /sys/class/scsi_host/host26/scan
+  971  echo "- - -" >  /sys/class/scsi_host/host27/scan
+  972  echo "- - -" >  /sys/class/scsi_host/host28/scan
+  973  echo "- - -" >  /sys/class/scsi_host/host29/scan
+  974  echo "- - -" >  /sys/class/scsi_host/host30/scan
+  975  echo "- - -" >  /sys/class/scsi_host/host31/scan
+  976  echo "- - -" >  /sys/class/scsi_host/host32/scan
+  977  echo "- - -" >  /sys/class/scsi_host/host33/scan
+  978  echo "- - -" >  /sys/class/scsi_host/host34/scan
+  979  cd ~
+  980  lsblk
+  981  df -h /u01/oracle/mde
+  982  ls -l sdae
+  983  ls -l /dev/sdae
+  984  df -Th /u01/oracle/mde
+  985  pvcreate /dev/sdae
+  986  vgextend  VG01 /dev/sdae
+  987  vgs
+  988  lvextend -l +100G /dev/mapper/VG01-LogVol28 -r
+  989  lvextend -L +100G /dev/mapper/VG01-LogVol28 -r
+  990  df -Th /u01/oracle/mde
+  991  vgs
+  992  df -h /u01/oracle/caq
+  993  lsblk
+  994  pvcreate /dev/sdaf
+  995  vgextend  VG01 /dev/sdaf
+  996  vgs
+  997  lvextend -L +50G /dev/mapper/VG01-LogVol36 -r
+  998  df -h /u01/oracle/caq
+  999  exit
+ 1000  history
+[root@NLSKDA02 ~]#
+***************************************************************************************
+
+  942  vgs
+  943  lsblk
+  944  ls -l /dev/sdo
+  945  pvcreate /dev/sdo
+  946  vgcreate vg03 /dev/sdo
+  947  vgs
+  948  vgdisplay
+  949  lvcreate -L +160G vg03 -n lvol1
+  950  mkdir /u01/oradata/BDEPR1
+  951  cp -pr /etc/fstab /etc/fstab.23122023
+  952  vi /etc/fstab
+  953  mkfs.xfs /dev/vg03/lvol1
+  954  mount /u01/oradata/BDEPR1
+  955  df -h /u01/oradata/BDEPR1
+  956  df -Th
+  957  vgs
+  958  lvcreate -L +30G vg03 -n lvol2
+  959  mkdir /u01/FRA/BDEPR1
+  960  vi /etc/fstab
+  961  mkfs.xfs /dev/vg03/lvol2
+  962  mount /u01/FRA/BDEPR1
+  963  df -Th
+  964  vgs
+  965  vgdisplay
+  966  lvcreate -L +30G vg03 -n lvol3
+  967  mkdir /u01/oradata/FEKORPR1
+  968  mkfs.xfs /dev/vg03/lvol3
+  969  vi /etc/fstab
+  970  mount /u01/oradata/FEKORPR1
+  971  df -Th
+  972  vgs
+  973  lvcreate -L +20G vg03 -n lvol4
+  974  mkfs.xfs /dev/vg03/lvol4
+  975  mkdir /u01/FRA/FEKORPR1
+  976  vi /etc/fstab
+  977  mount /u01/FRA/FEKORPR1
+  978  df -Th
+  979  vgs
+  980  df -Th /u01/oradata/BDEPR1 /u01/FRA/BDEPR1 /u01/oradata/FEKORPR1 /u01/FRA/FEKORPR1
+  981  lsblk
+  982  history
+  983  exit
+  984  df -h
+  985  ls -l /u01/oradata/BDEPR1
+  986  ll /u01/oradata/BDEPR1
+  987  ls -ld /u01/oradata/BDEPR1
+  988  ls -ld /u01/oradata/OBDEQA1
+  989  chown oracle:oinstall /u01/oradata/BDEPR1
+  990  ls -ld /u01/oradata/OBDEQA1
+  991  chown oracle:oinstall /u01/FRA/BDEPR1
+  992  ls -ld /u01/FRA/BDEPR1
+  993  chown oracle:oinstall /oradata/FEKORPR1
+  994  chown oracle:oinstall /u01/oradata/FEKORPR1
+  995  chown oracle:oinstall /u01/FRA/FEKORPR1
+  996  ls -ld /u01/oradata/BDEPR1 /u01/FRA/BDEPR1 /u01/oradata/FEKORPR1 /u01/FRA/FEKORPR1
+  997  cp /etc/sudoers /etc/sudoers-bkp24122023
+  998  echo "kjj4nj ALL=(ALL) /bin/su - oracle" >> /etc/sudoers
+  999  sudo -i
+ 1000  exit
+ 1001  history
+**********************************************
+  999  lsblk
+ 1000  exit
+ 1001  lsblk
+ 1002  ls -l /dev/sdh
+ 1003  pvcreate /dev/sdh
+ 1004  vgextend vg01 /dev/sdh
+ 1005  vgs
+ 1006  lvextend -L +600G /dev/mapper/vg01-lvol1 -r
+ 1007  df -h /backup
+ 1008  vgs
+ 1009  history
+[root@huszda03 ~]#
+********************************
+ 970  df -hP
+  971  df -hT
+  972  sfdisk -s
+  973  pvcreate /dev/sdj
+  974  vgs
+  975  pvcreate /dev/sdk
+  976  sfdisk -s
+  977  df -hT
+  978  sfdisk -s
+  979  pvcreate /dev/sdj
+  980  vgs
+  981  pvcreate /dev/sdk
+  982  history
+  983  history
+  984  sfdisk -s
+  985  vgs
+  986  history
+  987  logout
+  988  history
+  989  df -h
+  990  sfdisk -s
+  991  history
+  992  sfdisk -s
+
+**********************************************************************
+
+
+  900  vgs
+  901  lsblk
+  902  cd ~
+  903  vgextend  vg01 /dev/sdp
+  904  vgs
+  905  df -h
+  906  df -h /data/jetdbs
+  907  date
+  908  lvextend -L +100%FREE /dev/mapper/vg01-data
+  909  lvextend -l +100%FREE /dev/mapper/vg01-data
+  910  df -h /data/jetdbs
+  911  df -Th
+
+  913  df -h /data/jetdbs
+  914  lvs
+  915  vgs
+  916  lvextend -l +100%FREE /dev/mapper/vg01-data -r
+  917  df -h
+  918  df -h /data/jetdbs
+*************************************
+
+last reference
+
+  982  df -hTP
+  983  cat /etc/fstab
+  984  lsblk
+  985  pvcreate /dev/sdo
+  986  vgcreate vg_db /dev/sdo
+  987  lvcreate -l +100%FREE -n lv_backup vg_db
+  988  mkfs.xfs /dev/vg_db/lv_backup
+  989  mkdir -p /db_backup
+  990  blkid
+  991  vi /etc/fstab
+  992  mount -a
+  993  vi /etc/fstab
+  994  mount -a
+  995  df -h
+  996  df -h /db_backup
+  997  history
+  998  cat /etc/fstab
+  999  history
+ 1000  logout
+ 1001  history
+[root@usmida36 ~]#
+******************************************
+
+  986  19/02/24 06:25:29 df -h
+  987  19/02/24 06:25:40 df -h /backup
+  988  19/02/24 06:26:01 lsblk
+  989  19/02/24 06:26:56 df -hTP
+  990  19/02/24 06:27:16 lsblk
+  991  19/02/24 06:27:40 pvcreate /dev/sdh
+  992  19/02/24 06:28:35 vgcreate vg_backup /dev/sdh
+  993  19/02/24 06:30:02 lvcreate -l +100%FREE -n lv_backup vg_backup
+  994  19/02/24 06:30:57 mkfs.xfs /dev/vg_backup/lv_backup
+  995  19/02/24 06:31:11 vi /etc/fstab
+  996  19/02/24 06:32:53 mkdir -p /backup
+  997  19/02/24 06:32:59 mount -a
+  998  19/02/24 06:33:25 df -h
+  999  19/02/24 06:33:33 df -h /backup
+
+***************************************************************
+
+ 971  lsblk
+  972  cd /sys/class/scsi_host
+  973  ls
+  974  echo "- - -" >  /sys/class/scsi_host/host0/scan
+  975  echo "- - -" >  /sys/class/scsi_host/host1/scan
+  976  echo "- - -" >  /sys/class/scsi_host/host2/scan
+  977  clear
+  978  lsblk
+  979  pvcreate /dev/sdg
+  980  vgs
+  981  df -h /pbs
+  982  vgextend appvg /dev/sdg
+  983  vgs
+  984  lvextend -l +100%FREE -r /dev/mapper/appvg-pbslv
+  985  df -h /pbs
+  986  date
+
+******************************************************
+
+pvcreate /dev/sdc
+
+vgcreate vg01 /dev/sdc
+
+lvcreate -l+100%FREE -n lvol1 vg01
+
+
+mkfs.xfs /dev/mapper/vg01-lvol1
+
+mkdir -p /u01
+
+mount /dev/mapper/vg01-lvol1 /u01
+
+
+/dev/mapper/vg01-lvol1 /u01      xfs    defaults    0 0
+
+
+/dev/mapper/vg01-lvol1                     xfs       148G  105G   44G  71% /u01
+
+
+sdf                8:80   0   148G  0 disk
+sdf                8:80   0   148G  0 disk
+
+
+/dev/mapper/vg00-rapid7
+
+pvcreate /dev/sdd
+
+vgcreate vg00 /dev/sdd
+
+lvcreate -l+100%FREE -n rapid7 vg00
+
+mkfs.xfs /dev/mapper/vg00-rapid7
+
+mkdir -p /opt/rapid7
+
+mount /dev/mapper/vg00-rapid7 /opt/rapid7
+
+/dev/mapper/vg00-rapid7         /opt/rapid7     xfs     defaults        0 0
+
+***********************************************
+pvcreate /dev/sdj
+
+vgcreate tmpvg /dev/sdj
+
+lvcreate -l+100%FREE -n tmplv tmpvg
+
+mkfs.xfs /dev/mapper/tmpvg-tmplv
+
+mkdir -p /tmp_8_oct_24 
+
+mount /dev/mapper/tmpvg-tmplv /tmp_8_oct_24  
+
+/dev/mapper/tmpvg-tmplv        /tmp_8_oct_24      xfs     defaults        0 0
+
+/tmp_8_oct_24 
+***********************************************************
+pvcreate /dev/sde
+
+vgcreate docker_vg /dev/sde
+
+lvcreate -l+100%FREE -n docker_lv docker_vg
+
+mkfs.xfs /dev/mapper/docker_vg-docker_lv
+
+mkdir -p /var/lib/docker_new
+
+mount /dev/mapper/docker_vg-docker_lv /var/lib/docker_new
+
+/dev/mapper/docker_vg-docker_lv /var/lib/docker_new     xfs     defaults        0 0
+
+*******************************************************************
+96  pvcreate /dev/sdf
+   97  vgcreate vg00 /dev/sdf
+   98  lvcreate -L +20G vg00 -n Tanium
+   99  lvcreate -L +2G vg00 -n Rapid7
+  100  mkfs.xfs /dev/vg00/Tanium
+  101  mkfs.xfs /dev/vg00/Rapid7
+  102  clear
+  103  mkdir -p /opt/Tanium
+  104  mkdir -p /opt/rapid7
+  105  vi /etc/fstab
+  106  mount -a
+  107  systemctl daemon-reload
+
+******************************************************************************
+
+sde                  8:64   0  100G  0 disk
+sdf                  8:80   0   75G  0 disk
+sdg                  8:96   0   15G  0 disk
+sdh                  8:112  0   15G  0 disk
+
+pvcreate /dev/sde
+pvcreate /dev/sdf
+pvcreate /dev/sdg
+pvcreate /dev/sdh
+
+vgcreate vg02 /dev/sde
+vgcreate vg03 /dev/sdf
+vgcreate vg04 /dev/sdg
+vgcreate vg05 /dev/sdh
+
+
+lvcreate -l+100%FREE -n lv02 vg02
+lvcreate -l+100%FREE -n lv03 vg03
+lvcreate -l+100%FREE -n lv04 vg04
+lvcreate -l+100%FREE -n lv05 vg05
+
+
+mkfs.xfs /dev/mapper/vg02-lv02
+mkfs.xfs /dev/mapper/vg03-lv03
+mkfs.xfs /dev/mapper/vg04-lv04
+mkfs.xfs /dev/mapper/vg05-lv05
+
+mkdir /u02
+mkdir /u03
+mkdir /u04
+mkdir /u05
+
+mount /dev/mapper/vg02-lv02 /u02
+mount /dev/mapper/vg03-lv03 /u03
+mount /dev/mapper/vg04-lv04 /u04
+mount /dev/mapper/vg05-lv05 /u05
+
+/dev/mapper/vg02-lv02 /u02     xfs     defaults        0 0
+/dev/mapper/vg03-lv03 /u03    xfs     defaults        0 0
+/dev/mapper/vg04-lv04 /u04     xfs     defaults        0 0
+/dev/mapper/vg05-lv05 /u05     xfs     defaults        0 0
+*********************************************************************************
+
+727  26/04/25 14:57:13 lsblk
+  728  26/04/25 14:57:13 cd /sys/class/scsi_host
+  729  26/04/25 14:57:13 echo "- - -" > /sys/class/scsi_host/host0/scan
+  730  26/04/25 14:57:13 ls
+  731  26/04/25 14:57:13 echo "- - -" > /sys/class/scsi_host/host1/scan
+  732  26/04/25 14:57:13 echo "- - -" > /sys/class/scsi_host/host2/scan
+  733  26/04/25 14:57:13 echo "- - -" > /sys/class/scsi_host/host3/scan
+  734  26/04/25 14:57:13 echo "- - -" > /sys/class/scsi_host/host4/scan
+  735  26/04/25 14:57:13 lsblk
+  736  26/04/25 14:57:13 df -h
+  737  26/04/25 14:57:13 lsblk
+  738  26/04/25 14:57:13 df -Th /1a/iss/sites/release/data/released_large_file_archive_3
+  739  26/04/25 14:57:13 cd
+  740  26/04/25 14:57:13 df -Th /1a/iss/sites/release/data/released_large_file_archive_3
+  741  26/04/25 14:57:13 pvcreate /dev/sdad
+  742  26/04/25 14:57:13 pvs
+  743  26/04/25 14:57:13 df -h
+  744  26/04/25 14:57:13 vgextend archive_3_vg /dev/sdad
+  745  26/04/25 14:57:13 lvextend -L +1TB /dev/mapper/archive_3_vg-archive_3_lv
+  746  26/04/25 14:57:13 lvextend -L +950G /dev/mapper/archive_3_vg-archive_3_lv
+  747  26/04/25 14:57:13 xfs_growfs /dev/mapper/archive_3_vg-archive_3_lv
+  748  26/04/25 14:57:13 df -h
+  749  26/04/25 14:57:13 vgs
+  750  26/04/25 14:57:13 lvextend -L +50G /dev/mapper/archive_3_vg-archive_3_lv
+  751  26/04/25 14:57:13 xfs_growfs /dev/mapper/archive_3_vg-archive_3_lv
+  752  26/04/25 14:57:13 vgs
+  753  26/04/25 14:57:13 df -h
+  754  26/04/25 14:57:13 vgs
+  755  26/04/25 14:57:13 lvextend -L +20G /dev/mapper/archive_3_vg-archive_3_lv
+  756  26/04/25 14:57:13 xfs_growfs /dev/mapper/archive_3_vg-archive_3_lv
+  757  26/04/25 14:57:13 vgs
+  758  26/04/25 14:57:13 df -h
+  759  26/04/25 14:57:13 df -Th /1a/iss/sites/release/data/released_large_file_archive_3
+  760  26/04/25 14:57:13 logout
+  761  26/04/25 14:57:13 lsblk
+  762  26/04/25 14:57:13 pvs
+  763  26/04/25 14:57:13 pvs |grep -i rootvg
+
+
+*********************************************************************************************
+
+  988  16/05/25 16:03:49 lsblk
+  989  16/05/25 16:04:07 ls -l /dev/sdae
+  990  16/05/25 16:05:15 pvcreate /dev/sdae
+  991  16/05/25 16:05:25 vgs
+  992  16/05/25 16:06:11 vgextend  archive_3_vg /dev/sdae
+  993  16/05/25 16:06:16 vgs
+  994  16/05/25 16:06:36 df -h /1a/iss/sites/release/data/released_large_file_archive_3
+  995  16/05/25 16:07:36 lvextened -L +1T /dev/mapper/archive_3_vg-archive_3_lv -r
+  996  16/05/25 16:08:06 lvextend -L +1T /dev/mapper/archive_3_vg-archive_3_lv -r
+
+****************************************************************************************
+
+[root@ustraa69 ~]# df -h /iss/sites/release/data/released_large_file_archive_3
+Filesystem                             Size  Used Avail Use% Mounted on
+/dev/mapper/archive_3_vg-archive_3_lv  3.0T  2.9T  200G  94% /1a/iss/sites/release/data/released_large_file_archive_3
+[root@ustraa69 ~]#
+
+
+pvcreate /dev/sdaf
+vgextend archive_3_vg /dev/sdaf
+lvextend -L +1T /dev/mapper/archive_3_vg-archive_3_lv -r
+
+
+
+===========================================================================================================================================
